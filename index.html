@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آب و هوا</title>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+    <style media="screen">
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            max-width: 100%;
+            height: auto;
+        }
+
+        body {
+            background: rgb(123, 0, 255);
+            background: -moz-linear-gradient(90deg, rgba(123, 0, 255, 1) 0%, rgba(226, 0, 255, 1) 100%);
+            background: -webkit-linear-gradient(90deg, rgba(123, 0, 255, 1) 0%, rgba(226, 0, 255, 1) 100%);
+            background: linear-gradient(90deg, rgba(123, 0, 255, 1) 0%, rgba(226, 0, 255, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7b00ff", endColorstr="#e200ff", GradientType=1);
+        }
+
+        .container-fluid {
+            width: 410px;
+            margin: 50px auto;
+            padding: 10px;
+        }
+
+
+        .inputs {
+            padding: 2rem 0 2rem 0;
+            text-align: center;
+            justify-content: center;
+            background: rgb(123, 0, 255);
+            background: -moz-linear-gradient(90deg, rgba(123, 0, 255, 1) 0%, rgba(226, 0, 255, 1) 100%);
+            background: -webkit-linear-gradient(90deg, rgba(123, 0, 255, 1) 0%, rgba(226, 0, 255, 1) 100%);
+            background: linear-gradient(90deg, rgba(123, 0, 255, 1) 0%, rgba(226, 0, 255, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7b00ff", endColorstr="#e200ff", GradientType=1);
+            border-radius: 20px;
+        }
+
+        .inputs input[type="text"] {
+            height: 3.5rem;
+            width: 20rem;
+            background: #ffffff;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 10px;
+            border: 4px solid #ff00e1;
+            border-radius: 20px;
+            margin-right: 4px;
+            color: #1e1e1e;
+        }
+
+        .inputs input[type="text"]::placeholder {
+            color: #b4b4b4;
+        }
+
+        #add {
+            border: none;
+            box-shadow: none;
+            background: rgb(192, 43, 255);
+            background: linear-gradient(90deg, rgba(192, 43, 255, 1) 0%, rgba(255, 218, 0, 1) 100%);
+            width: 50%;
+            transition: none;
+            color: #20202a;
+            padding: 15px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            margin-top: 45px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 20px;
+            transition: .4s;
+        }
+
+        #add:hover {
+            transform: scale(110%);
+        }
+
+        .display {
+            text-align: center;
+            width: 400px;
+            color: #2f2f2f;
+        }
+
+        .wrapper {
+            background: rgb(123, 0, 255);
+            background: -moz-linear-gradient(90deg, rgba(123, 0, 255, 1) 0%, rgba(226, 0, 255, 1) 100%);
+            background: -webkit-linear-gradient(90deg, rgba(123, 0, 255, 1) 0%, rgba(226, 0, 255, 1) 100%);
+            background: linear-gradient(90deg, rgba(123, 0, 255, 1) 0%, rgba(226, 0, 255, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7b00ff", endColorstr="#e200ff", GradientType=1);
+            height: 45vh;
+            margin: 42px auto;
+            border-radius: 20px;
+        }
+
+        .wrapper h2 {
+            padding: 20px 0;
+            text-align: center;
+            background: rgb(123, 0, 255);
+            background: -moz-linear-gradient(90deg, rgba(123, 0, 255, 1) 0%, rgba(226, 0, 255, 1) 100%);
+            background: -webkit-linear-gradient(90deg, rgba(123, 0, 255, 1) 0%, rgba(226, 0, 255, 1) 100%);
+            background: linear-gradient(90deg, rgba(123, 0, 255, 1) 0%, rgba(226, 0, 255, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7b00ff", endColorstr="#e200ff", GradientType=1);
+            color: white;
+            font-family: sans-serif;
+            border-radius: 20px;
+        }
+
+        .wrapper p {
+            margin: 20px 50px;
+            text-align: left;
+            color: #000000;
+            font-size: 23px;
+
+        }
+
+        .wrapper h2 span {
+            font-size: 26px;
+            color: #ffea00;
+        }
+
+        .wrapper p span {
+            color: #ffe5f9;
+            font-size: 25px;
+        }
+
+        #description, #temp, #wind {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+
+        <section class="main">
+
+
+            <section class="inputs">
+                <input type="text" placeholder="نام شهر" id="cityinput" dir="rtl">
+                <input type="submit" value="جستجو" id="add">
+            </section>
+
+
+            <section class="display">
+                <div class="wrapper">
+                    <h2 id="cityoutput"></h2>
+                    <p id="temp"></p>
+                    <p id="wind"></p>
+                    <p id="description"></p>
+                </div>
+            </section>
+        </section>
+
+    </div>
+
+    <script dir="rtl">
+
+        var inputval = document.querySelector('#cityinput')
+        var btn = document.querySelector('#add');
+        var city = document.querySelector('#cityoutput')
+        var descrip = document.querySelector('#description')
+        var temp = document.querySelector('#temp')
+        var wind = document.querySelector('#wind')
+
+
+        apik = "3045dd712ffe6e702e3245525ac7fa38"
+
+
+        function convertion(val) {
+            return (val - 273).toFixed(2)
+        }
+
+
+        btn.addEventListener('click', function () {
+
+
+            fetch('https://api.openweathermap.org/data/2.5/weather?q=' + inputval.value + '&appid=' + apik)
+                .then(res => res.json())
+
+
+                .then(data => {
+
+
+                    var nameval = data['name']
+                    var descrip = data['weather']['0']['description']
+                    var tempature = data['main']['temp']
+                    var wndspd = data['wind']['speed']
+                    city.innerHTML = `دمای <span>${nameval}<span>`
+                    temp.innerHTML = `دما : <span>${convertion(tempature)} سانتیگراد</span>`
+                    description.innerHTML = `وضعیت آسمان : <span>${descrip}<span>`
+                    wind.innerHTML = `سرعت باد : <span>${wndspd} ک.م / ساعت<span>`
+
+                })
+
+                .catch(err => alert('نام شهر اشتباه است !'))
+        })
+    </script>
+</body>
+
+</html>
